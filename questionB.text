@@ -1,0 +1,13 @@
+Question B
+
+(i)Deflate (DEFLATE) compression algorithm would be the best
+Deflate provides a good balance between compression ratio and performance,
+making it suitable for compressing text-based messages or small-to-medium-sized data.
+
+(ii)The overall worst-case time complexity of the message handling process,
+assuming compression and decompression are the most time-consuming parts,
+can be summarized as follows:
+
+compression: 𝑂(𝑚log⁡𝑘)O(mlogk) where 𝑚m is the length of the original message and 𝑘k is the number of unique symbols in the original message. Message distribution: 𝑂(𝑛)O(n) where 𝑛n is the number of connected clients. Decompression: 𝑂(𝑚′log⁡𝑘′)O(m′logk′) where 𝑚′m′ is the length of the compressed message and 𝑘′k′ is the number of unique symbols in the compressed message.
+So, the overall worst-case time complexity would be the sum of these complexities:
+𝑂(𝑚log⁡𝑘)+𝑂(𝑛)+𝑂(𝑚′log⁡𝑘′)O(mlogk)+O(n)+O(m′logk′)
