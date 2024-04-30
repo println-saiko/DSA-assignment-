@@ -8,8 +8,14 @@ making it suitable for compressing text-based messages or small-to-medium-sized 
 assuming compression and decompression are the most time-consuming parts,
 can be summarized as follows:
 
-compression: 𝑂(𝑚log⁡𝑘) where 𝑚 is the length of the original message and 𝑘 is the number of unique symbols in the original message. 
-Message distribution: 𝑂(𝑛) where 𝑛 is the number of connected clients. Decompression: 𝑂(𝑚′log⁡𝑘′) where 𝑚′m′ is the length of the compressed message and 𝑘′
-is the number of unique symbols in the compressed message.
-So, the overall worst-case time complexity would be the sum of these complexities:
-𝑂(𝑚log⁡𝑘)+𝑂(𝑛)+𝑂(𝑚′log⁡𝑘′)
+The overall worst-case time complexity of the messages handling process, assuming compression and decompression are the most time- consuming parts, can be summarized as follows:
+
+Compression: O (m log k) where m is the length of the original message and k is the number of unique symbols in the original message. 
+Message distribution: O(n) where n is the number of connected clients. 
+
+Decompression: O (m’ log k’) where m’ is the length of the compressed message and k’ 
+is the number of unique symbols in the compressed message. 
+
+So, the overall worst-case time complexity would be the sum of the these complexities
+
+O (m log k) + O(n) + O(m’ log k’)
