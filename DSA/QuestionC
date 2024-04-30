@@ -1,0 +1,62 @@
+import java.util.HashMap;
+import java.util.Map;
+
+// ServerNode class
+class ServerNode {
+    private Map<String, ClientNode> clients;
+
+    public ServerNode() {
+        clients = new HashMap<>();
+    }
+
+    public void registerClient(ClientNode client) {
+        clients.put(client.getId(), client);
+    }
+
+    public void sendMessage(String senderId, String receiverId, String message) {
+        ClientNode senderNode = clients.get(senderId);
+        ClientNode receiverNode = clients.get(receiverId);
+
+        if (senderNode != null && receiverNode != null) {
+            receiverNode.receive(senderId, message);
+        } else {
+            System.out.println("Invalid sender or receiver ID.");
+        }
+    }
+}
+
+// ClientNode class
+class ClientNode {
+    private String id;
+    private ServerNode server;
+
+    public ClientNode(String id, ServerNode server) {
+        this.id = id;
+        this.server = server;
+        server.registerClient(this);
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void send(String receiverId, String message) {
+        server.sendMessage(id, receiverId, message);
+    }
+
+    public void receive(String senderId, String message) {
+        System.out.println("Message received by " + id + " from " + senderId + ": " + message);
+    }
+}
+
+// Example usage
+public class Main {
+    public static void main(String[] args) {
+        ServerNode server = new ServerNode();
+        ClientNode client1 = new ClientNode("Client1", server);
+        ClientNode client2 = new ClientNode("Client2", server);
+
+        client1.send("Client2", "Hello, Client2!");
+        client2.send("Client1", "Hi, Client1!");
+    }
+}
