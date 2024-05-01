@@ -15,6 +15,7 @@ public class ServerNode {
     public void handleMessage(ClientNode sender, String message) {
         this.message = message;
         System.out.println("Server received message: " + message + " from " + sender.getName());
+
         // Loop through connected clients and send the message
         for (int i = 0; i < numClients; i++) {
             if (connectedClients[i] != sender) {
