@@ -10,7 +10,7 @@ public class ClientNode {
         // Option 1: Use server directly if public (less secure)
         // this.server = server; // Uncomment if using this approach
 
-        // Option 2: Use getter method (recommended)
+        // Option 2: Use getter method 
         this.server = server.getServer();
     }
 
